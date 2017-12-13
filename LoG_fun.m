@@ -27,7 +27,6 @@ outg(:,:,1)=imfilter(img,gauss_krl,'replicate');
 for i=1:n-1
 
        outg(:,:,i+1)=imfilter(outg(:,:,i),gauss_krl,'replicate');
-%     img2=(j*sigma^2)*conv2(img,[-1 -1 -1; -1 8 -1; -1 -1 -1],'same');
     
 end
 outw=zeros(nrows,ncols,n);
@@ -35,7 +34,6 @@ outw=zeros(nrows,ncols,n);
 
 for i=1:n
 
-%     img2=(j*sigma^2)*conv2(img,[-1 -1 -1; -1 8 -1; -1 -1 -1],'same');
        outw(:,:,i)=i*(sigma^2)*imfilter(outg(:,:,i),[-1 -1 -1; -1 8 -1; -1 -1 -1],'replicate');
 
 end
